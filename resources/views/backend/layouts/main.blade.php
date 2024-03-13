@@ -14,6 +14,13 @@
         <meta property="og:site_name" content="Metronic by Keenthemes" />
         <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
         <link rel="shortcut icon" href="{{ asset('layouts/backend/assets/media/logos/favicon.ico') }}" />
+        <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
+        <style>
+            body {
+                font-family: cairo !important;
+            }
+        </style>
+        @yield('styles')
         <!--begin::Fonts(mandatory for all pages)-->
         @include('backend.layouts.style')
     </head>
@@ -48,6 +55,8 @@
         <!--begin::Javascript-->
         @include('backend.layouts.script')
         <!--end::Javascript-->
+        @yield('scripts')
+        @include('sweetalert::alert')
     </body>
     <!--end::Body-->
 </html>

@@ -64,6 +64,12 @@
         <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
         <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
         @include('backend.layouts.style')
+        <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
+        <style>
+            body {
+                font-family: cairo !important;
+            }
+        </style>
     </head>
     <!--end::Head-->
     <!--begin::Body-->

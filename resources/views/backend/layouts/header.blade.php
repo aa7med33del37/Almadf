@@ -902,9 +902,9 @@
             <!--end::My apps links-->
             <!--begin::Action-->
             <div class="app-navbar-item ms-1 ms-md-3">
-                <a href="#" class="btn btn-flex btn-icon align-self-center fw-bold btn-secondary w-30px w-md-100 h-30px h-md-35px px-4 ms-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">
+                <a href="{{ route('home') }}" target="_blank" class="btn btn-flex btn-icon align-self-center fw-bold btn-secondary w-30px w-md-100 h-30px h-md-35px px-4 ms-3">
                 <i class="ki-outline ki-crown-2 fs-3"></i>
-                <span class="d-none d-md-inline ms-2 fs-7">Try Premium</span>
+                <span class="d-none d-md-inline ms-2 fs-7"> الذهاب الي الموقع </span>
                 </a>
             </div>
             <!--end::Action-->

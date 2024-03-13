@@ -33,17 +33,15 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                     <span class="menu-icon">
                     <i class="ki-outline ki-some-files fs-2"></i>
                     </span>
-                    <span class="menu-title">Pages</span>
+                    <span class="menu-title">العاملات</span>
                     <span class="menu-arrow"></span>
                     </span>
-                    <!--end:Menu link-->
-                    <!--begin:Menu sub-->
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -1177,11 +1175,10 @@
                         </div>
                         <!--end:Menu item-->
                     </div>
-                    <!--end:Menu sub-->
-                </div>
+                </div> --}}
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                     <span class="menu-icon">
@@ -2318,10 +2315,10 @@
                         <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
-                </div>
+                </div> --}}
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                     <span class="menu-icon">
@@ -2838,16 +2835,17 @@
                         <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
-                </div>
+                </div> --}}
                 <!--end:Menu item-->
-                <!--begin:Menu item-->
+
+                <!--begin:Workers item-->
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                     <span class="menu-icon">
                     <i class="ki-outline ki-rescue fs-2"></i>
                     </span>
-                    <span class="menu-title">Help</span>
+                    <span class="menu-title"> العاملات </span>
                     <span class="menu-arrow"></span>
                     </span>
                     <!--end:Menu link-->
@@ -2856,11 +2854,11 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs/base/utilities" target="_blank" title="Check out over 200 in-house components" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+                            <a class="menu-link" href="{{ route('workers.index') }}" title="Check out over 200 in-house components" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                             <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="menu-title">Components</span>
+                            <span class="menu-title"> جميع العاملات </span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -2868,41 +2866,45 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs" target="_blank" title="Check out the complete documentation" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+                            <a class="menu-link" href="{{ route('workers.create') }}" title="Check out the complete documentation" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                             <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="menu-title">Documentation</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="https://preview.keenthemes.com/metronic8/demo55/layout-builder.html" title="Build your layout and export HTML for server side integration" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
-                            <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Layout Builder</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" target="_blank">
-                            <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Changelog v8.2.3</span>
+                            <span class="menu-title"> اضافة عاملة </span>
                             </a>
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
+                </div>
+                <!--end:Workers item-->
+
+                <!--begin:Banners item-->
+                <div class="menu-item menu-accordion">
+                    <!--begin:Menu link-->
+                    <span class="menu-link">
+                    <span class="menu-icon">
+                    <i class="ki-outline ki-rescue fs-2"></i>
+                    </span>
+                    <a href="{{ route('banners.index') }}" class="menu-title"> بانرات الموقع </a>
+                    <span class="menu-arrow"></span>
+                    </span>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Banners item-->
+
+                <!--begin:Menu item-->
+                <div class="menu-item menu-accordion">
+                    <!--begin:Menu link-->
+                    <span class="menu-link">
+                    <span class="menu-icon">
+                    <i class="ki-outline ki-rescue fs-2"></i>
+                    </span>
+                    <a href="{{ route('settings.index') }}" class="menu-title"> اعدادات الموقع </a>
+                    <span class="menu-arrow"></span>
+                    </span>
+                    <!--end:Menu link-->
                 </div>
                 <!--end:Menu item-->
             </div>
