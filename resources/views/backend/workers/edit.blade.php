@@ -127,16 +127,9 @@
                                                 <div class="col-lg-6">
                                                     <label class="form-label fw-bold fs-6 text-gray-700"> الدولة </label>
                                                     <select name="country" aria-label="Select a Timezone" data-control="select2" data-placeholder="دولة العاملة" class="form-select form-select-solid">
-                                                        {{-- <option value=""></option>
-                                                        <option data-kt-flag="flags/united-states.svg" value="saudi" {{ $worker->country == 'saudi' ? 'selected' : '' }}>
-                                                            المملكة العربية السعودية
-                                                        </option>
-                                                        <option data-kt-flag="flags/united-kingdom.svg" value="malaysia" {{ $worker->country == 'malaysia' ? 'selected' : '' }}>
-                                                            ماليزيا
-                                                        </option> --}}
                                                         <option value="">اختيار</option>
                                                         @foreach ($countries as $country)
-                                                        <option value="{{ $country->country_arName }}" {{ $worker->country == $country->country_arName  }}>
+                                                        <option value="{{ $country->country_arName }}" {{ $worker->country == $country->country_arName ? 'selected' : ''  }}>
                                                             {{ $country->country_arName }}
                                                         </option>
                                                         @endforeach
@@ -212,7 +205,7 @@
                                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-bs-original-title="Change avatar" data-kt-initialized="1">
                                                     <i class="ki-outline ki-pencil fs-7"></i>
                                                     <!--begin::Inputs-->
-                                                    <input type="file" name="image" accept=".png, .jpg, .jpeg" value="{{ $worker->image }}">
+                                                    <input type="file" name="image[]" multiple accept=".png, .jpg, .jpeg" value="{{ $worker->image }}">
                                                     <input type="hidden" name="avatar_remove">
                                                     <!--end::Inputs-->
                                                 </label>

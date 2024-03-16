@@ -11,6 +11,7 @@ use App\Models\Backend\ReviewsBanner;
 use App\Models\Backend\partnersBanner;
 use App\Models\Backend\Workers;
 use App\Models\Backend\Country;
+use App\Models\Backend\Team;
 
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class IndexController extends Controller
         $result['reviewsBanner'] = ReviewsBanner::first();
         $result['partners'] = partnersBanner::get();
         $result['workers'] = Workers::get();
+        $result['team'] = Team::get();
         return view('frontend.index', $result);
     }
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\WorkersController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\Banners\BannerController;
@@ -12,9 +13,13 @@ use App\Http\Controllers\Backend\Banners\OrderBannerController;
 use App\Http\Controllers\Backend\Banners\ReviewsBannerController;
 use App\Http\Controllers\Backend\Banners\partnersBannerController;
 use App\Http\Controllers\Backend\Banners\FunFactController;
+use App\Http\Controllers\Backend\ClientOrderController;
+use App\Http\Controllers\Backend\MarketingController;
+use App\Http\Controllers\Backend\TeamController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\ServicesController;
+use App\Http\Controllers\Frontend\OrderController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +41,7 @@ Route::get('/staff', [IndexController::class, 'staff'])->name('staff');
 Route::get('/staff/{id}', [IndexController::class, 'staff_details'])->name('staff_details');
 Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
 Route::get('/faq', [IndexController::class, 'faq'])->name('faq');
+Route::post('/order', [OrderController::class, 'store'])->name('home.order.store');
 
 
 // Route::get('/dashboard', function () {
@@ -49,6 +55,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function() {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        // User
+        Route::resource('users', UserController::class);
         // Workers Route
         Route::resource('workers', WorkersController::class);
         Route::get('changeStatus', [WorkersController::class, 'changeStatus']);
@@ -86,6 +94,21 @@ Route::middleware('auth')->group(function () {
         Route::get('funfact', [FunFactController::class, 'index'])->name('funfact.index');
         Route::post('funfact/store', [FunFactController::class, 'store'])->name('funfact.store');
         Route::post('funfact/store/{id}', [FunFactController::class, 'store'])->name('funfact.store');
+        // FunFact
+        Route::resource('clients-orders', ClientOrderController::class);
+        // Marketng
+        Route::get('marketing', [MarketingController::class, 'index'])->name('marketing');
+        Route::get('marketing/notification', [MarketingController::class, 'notification'])->name('notification.index');
+        Route::post('marketing/notification/store/', [MarketingController::class, 'notification_post'])->name('notification.store');
+        Route::post('marketing/notification/store/{id}', [MarketingController::class, 'notification_post'])->name('notification.store');
+        Route::get('marketing/notification/change-status', [MarketingController::class, 'changeNotificationStatus']);
+        Route::get('marketing/popup', [MarketingController::class, 'popup'])->name('popup.index');
+        Route::post('marketing/popup/store/', [MarketingController::class, 'popup_post'])->name('popup.store');
+        Route::post('marketing/popup/store/{id}', [MarketingController::class, 'popup_post'])->name('popup.store');
+        Route::get('marketing/popup/change-status', [MarketingController::class, 'changePopupStatus']);
+        // Team Route
+        Route::resource('team', TeamController::class);
+        Route::get('change-status-team', [TeamController::class, 'changeStatus']);
     });
 });
 

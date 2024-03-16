@@ -324,7 +324,8 @@
             </div>
 
             <div class="col-lg-6 col-md-12">
-                <form class="free-quote-form">
+                <form class="free-quote-form" method="POST" action="{{ route('home.order.store') }}">
+                    @csrf
                     <h3>
                         <font style="vertical-align: inherit;">
                             <font style="vertical-align: inherit;">{{ $orderBanner->title }}</font>
@@ -332,37 +333,37 @@
                     </h3>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="أدخل أسمك">
+                        <input type="text" class="form-control" placeholder="أدخل أسمك" name="name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="أدخل رقم">
+                        <input type="tel" class="form-control" placeholder="أدخل رقم" name="phone">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="عنوان البريد الإلكتروني">
+                        <input type="email" class="form-control" placeholder="عنوان البريد الإلكتروني" name="email">
                     </div>
                     <div class="form-group">
-                        <select class="form-select form-control">
-                            <option value="1">
+                        <select class="form-select form-control" name="service">
+                            <option value="">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">اختر الخدمة</font>
                                 </font>
                             </option>
-                            <option value="2">
+                            <option value="تنظيف المنزل">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">تنظيف المنزل</font>
+                                    <font style="vertical-align: inherit;"> تنظيف المنزل </font>
                                 </font>
                             </option>
-                            <option value="3">
+                            <option value="تنظيف المكاتب">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">تنظيف المكاتب</font>
                                 </font>
                             </option>
-                            <option value="4">
+                            <option value="تنظيف النوافذ">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">تنظيف النوافذ</font>
                                 </font>
                             </option>
-                            <option value="5">
+                            <option value="خدمة السباكة">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">خدمة السباكة</font>
                                 </font>
@@ -398,178 +399,38 @@
         </div>
 
         <div class="row justify-content-center">
+            @forelse ($team as $item)
             <div class="col-lg-3 col-sm-4 col-6">
                 <div class="single-team-card">
                     <div class="team-image">
-                        <img src="{{ asset('layouts/frontend/assets/images/team/img_avatar.png')}}" alt="image">
+                        <img src="{{ asset($item->image)}}" alt="image">
 
                         <ul class="action-list">
-                            <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a>
+                            {{-- <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a> --}}
 
                         </ul>
                     </div>
                     <div class="team-content">
                         <h3>
-                            محمد العمري
+                            {{ $item->name }}
                         </h3>
                         <span>
-                            خدمة العملاء
+                            {{ $item->job }}
                         </span>
                     </div>
                 </div>
             </div>
+            @empty
 
-            <div class="col-lg-3 col-sm-4 col-6">
-                <div class="single-team-card">
-                    <div class="team-image">
-                        <img src="{{ asset('layouts/frontend/assets/images/team/img_avatar2.png')}}" alt="image">
+            @endforelse
 
-                        <ul class="action-list">
-                            <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a>
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <h3>
-                            احمد العمري
-                        </h3>
-                        <span>
-                            خدمة العملاء
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-4 col-6">
-                <div class="single-team-card">
-                    <div class="team-image">
-                        <img src="{{ asset('layouts/frontend/assets/images/team/img_avatar.png')}}" alt="image">
-
-                        <ul class="action-list">
-                            <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a>
-
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <h3>
-                            فادي عامر
-                        </h3>
-                        <span>
-                            خدمة العملاء
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-4 col-6">
-                <div class="single-team-card">
-                    <div class="team-image">
-                        <img src="{{ asset('layouts/frontend/assets/images/team/img_avatar2.png')}}" alt="image">
-
-                        <ul class="action-list">
-                            <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a>
-
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <h3>
-                            ابراهيم سليمان
-                        </h3>
-                        <span>
-                            خدمة العملاء
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-4 col-6">
-                <div class="single-team-card">
-                    <div class="team-image">
-                        <img src="{{ asset('layouts/frontend/assets/images/team/img_avatar.png')}}" alt="image">
-
-                        <ul class="action-list">
-                            <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a>
-
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <h3>
-                            محمد العمري
-                        </h3>
-                        <span>
-                            خدمة العملاء
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-4 col-6">
-                <div class="single-team-card">
-                    <div class="team-image">
-                        <img src="{{ asset('layouts/frontend/assets/images/team/img_avatar2.png')}}" alt="image">
-
-                        <ul class="action-list">
-                            <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a>
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <h3>
-                            احمد العمري
-                        </h3>
-                        <span>
-                            خدمة العملاء
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-4 col-6">
-                <div class="single-team-card">
-                    <div class="team-image">
-                        <img src="{{ asset('layouts/frontend/assets/images/team/img_avatar2.png')}}" alt="image">
-
-                        <ul class="action-list">
-                            <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a>
-
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <h3>
-                            فادي عامر
-                        </h3>
-                        <span>
-                            خدمة العملاء
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-4 col-6">
-                <div class="single-team-card">
-                    <div class="team-image">
-                        <img src="{{ asset('layouts/frontend/assets/images/team/img_avatar.png')}}" alt="image">
-
-                        <ul class="action-list">
-                            <li><a href="https://twitter.com/" target="_blank"><i class="ri-whatsapp-fill"></i></a>
-
-                        </ul>
-                    </div>
-                    <div class="team-content">
-                        <h3>
-                            ابراهيم سليمان
-                        </h3>
-                        <span>
-                            خدمة العملاء
-                        </span>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <div class="view-all-btn">
+        {{-- <div class="view-all-btn">
             <a href="team.html" class="default-btn"><i class="ri-eye-line"></i>
                 عرض الكل
             </a>
-        </div>
+        </div> --}}
     </div>
 </div>
 <!-- End Team Area -->
@@ -659,7 +520,7 @@
                             <div class="single-shop-card">
                                 <div class="shop-image">
                                     <a href="{{ route('staff_details', $worker->id) }}">
-                                        <img src="{{ asset($worker->image)}}"
+                                        <img src="{{ asset($worker->images[0]->image)}}"
                                             alt="image">
                                     </a>
                                     <ul class="action-list">

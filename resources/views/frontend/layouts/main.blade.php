@@ -42,7 +42,8 @@
     <div class="marquee">
         <span>
             <i class="ri-award-line"></i>
-            شركة المضف للاستقدام شركة متخصصة في الاستقدام والإيجار ونقل الخدمات، معتمدة من وزارة الموارد البشريه والتنميه الاجتماعيه
+            {{ $notification->notification_bar }}
+            {{-- شركة المضف للاستقدام شركة متخصصة في الاستقدام والإيجار ونقل الخدمات، معتمدة من وزارة الموارد البشريه والتنميه الاجتماعيه --}}
         </span>
       </div>
     <!-- End Marquee Area -->
@@ -68,6 +69,7 @@
     <!-- Links of JS files -->
 
     @include('frontend.layouts.script')
+    @include('sweetalert::alert')
 </body>
 
 </html>

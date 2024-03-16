@@ -50,11 +50,23 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="image-{{ $worker->id }}-tab" data-bs-toggle="tab"
                                         href="maid-details.html#image-{{ $worker->id }}" role="tab" aria-controls="image-{{ $worker->id }}">
-                                        <img src="{{ asset($worker->image) }}" alt="image">
+                                        <img src="{{ asset($worker->images[0]->image) }}" alt="image">
                                     </a>
                                 </li>
 
+                                @forelse ($worker->images as $key => $item)
+                                @if ($key > 0)
                                 <li class="nav-item">
+                                    <a class="nav-link" id="image-{{ $item->id }}-tab" data-bs-toggle="tab"
+                                        href="maid-details.html#image-{{ $item->id }}" role="tab" aria-controls="image-{{ $item->id }}">
+                                        <img src="{{ asset($item->image) }}" alt="image">
+                                    </a>
+                                </li>
+                                @endif
+                                @empty
+
+                                @endforelse
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" id="image-2-tab" data-bs-toggle="tab"
                                         href="maid-details.html#image-2" role="tab" aria-controls="image-2">
                                         <img src="{{ asset('layouts/frontend/assets/images/shop/maid-1.png') }}" alt="image">
@@ -73,17 +85,27 @@
                                         href="maid-details.html#image-4" role="tab" aria-controls="image-4">
                                         <img src="{{ asset('layouts/frontend/assets/images/shop/maid-1.png') }}" alt="image">
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
 
                         <div class="col-lg-9">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="image-{{ $worker->id }}" role="tabpanel">
-                                    <img src="{{ asset($worker->image) }}" alt="image">
+                                    <img src="{{ asset($worker->images[0]->image) }}" alt="image">
                                 </div>
 
-                                <div class="tab-pane fade" id="image-2" role="tabpanel">
+                                @forelse ($worker->images as $key => $item)
+                                @if ($key > 0)
+                                <div class="tab-pane fade" id="image-{{ $item->id }}" role="tabpanel">
+                                    <img src="{{ asset($item->image) }}" alt="image">
+                                </div>
+                                @endif
+                                @empty
+
+                                @endforelse
+
+                                {{-- <div class="tab-pane fade" id="image-2" role="tabpanel">
                                     <img src="{{ asset('layouts/frontend/assets/images/shop/maid-1.png') }}" alt="image">
 
                                 </div>
@@ -95,7 +117,7 @@
 
                                 <div class="tab-pane fade" id="image-4" role="tabpanel">
                                     <img src="{{ asset('layouts/frontend/assets/images/shop/maid-1.png') }}" alt="image">
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

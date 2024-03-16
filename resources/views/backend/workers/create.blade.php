@@ -98,7 +98,7 @@
                                                 <div>
                                                     <input type="number" class="form-control form-control-solid" placeholder="" min="18" max="50" value="25" name="age" style="text-align: end"/>
                                                 </div>
-                                                @error('ahge')
+                                                @error('age')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -138,13 +138,6 @@
                                                 <div class="col-lg-6">
                                                     <label class="form-label fw-bold fs-6 text-gray-700"> الدولة </label>
                                                     <select name="country" aria-label="Select a Timezone" data-control="select2" data-placeholder="دولة العاملة" class="form-select form-select-solid">
-                                                        {{-- <option value=""></option>
-                                                        <option data-kt-flag="flags/united-states.svg" value="saudi">
-                                                            المملكة العربية السعودية
-                                                        </option>
-                                                        <option data-kt-flag="flags/united-kingdom.svg" value="malaysia">
-                                                            ماليزيا
-                                                        </option> --}}
                                                         <option value="">اختيار</option>
                                                         @foreach ($countries as $country)
                                                         <option value="{{ $country->country_arName }}">
@@ -153,8 +146,8 @@
                                                         @endforeach
                                                     </select>
                                                     @error('country')
-                                                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
-                                                @enderror
+                                                        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label class="form-label fw-bold fs-6 text-gray-700"> الديانة </label>
@@ -228,7 +221,7 @@
                                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-bs-original-title="Change avatar" data-kt-initialized="1">
                                                     <i class="ki-outline ki-pencil fs-7"></i>
                                                     <!--begin::Inputs-->
-                                                    <input type="file" name="image" accept=".png, .jpg, .jpeg" multiple>
+                                                    <input type="file" name="image[]" accept=".png, .jpg, .jpeg" multiple>
                                                     <input type="hidden" name="avatar_remove">
                                                     <!--end::Inputs-->
                                                 </label>

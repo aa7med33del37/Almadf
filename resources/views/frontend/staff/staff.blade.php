@@ -95,17 +95,17 @@
                         <div class="col-lg-3 col-sm-6">
                             <div class="single-shop-card">
                                 <div class="shop-image">
-                                    <a href="maid-details.html"><img src="{{ asset($worker->image)}}"
+                                    <a href="{{ route('staff_details', $worker->id) }}"><img src="{{ asset($worker->images[0]->image)}}"
                                             alt="image"></a>
 
                                     <ul class="action-list">
-                                        <li><a href="maid-details.html"><i class="ri-eye-line"></i></a></li>
-                                        <li><a href="maid-details.html"><i class="ri-links-line"></i></a></li>
+                                        <li><a href="{{ route('staff_details', $worker->id) }}"><i class="ri-eye-line"></i></a></li>
+                                        <li><a href="{{ route('staff_details', $worker->id) }}"><i class="ri-links-line"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="shop-content">
                                     <h3>
-                                        <a href="maid-details.html">
+                                        <a href="{{ route('staff_details', $worker->id) }}">
                                            {{ $worker->name }}
                                         </a>
                                     </h3>

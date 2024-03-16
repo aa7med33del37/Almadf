@@ -6,6 +6,7 @@ use App\Models\Backend\Workers;
 use App\Models\Backend\Country;
 use Illuminate\Http\Request;
 use App\Http\Requests\Backend\WorkersRequest;
+use App\Http\Requests\Backend\WorkersUpdateRequest;
 use Illuminate\Support\Facades\File;
 Use Alert;
 use App\Models\Backend\WorkersImage;
@@ -52,16 +53,21 @@ class WorkersController extends Controller
             $data->cv = $cv_path . $fileName;
         }
 
-        $image_path = 'uploads/workers/image/';
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $fileName = time() . '.' . $ext;
-            $file->move($image_path, $fileName);
-            $data->image = $image_path . $fileName;
-        }
-
         $data->save();
+        $i = 1;
+        if ($request->hasFile('image')) {
+            $path = 'uploads/workers/image/';
+            foreach($request->file('image') as $imgFile) {
+                $ext = $imgFile->getClientOriginalExtension();
+                $fileName = time() . $i++ . '.' . $ext;
+                $imgFile->move($path, $fileName);
+
+                $data->images()->create([
+                    'worker_id' => $data->id,
+                    'image'      => $path . $fileName,
+                ]);
+            }
+        }
         alert()->success('تم بنجاح','تم اضافة بيانات العاملة بنجاح');
         return redirect()->route('workers.index');
     }
@@ -74,22 +80,22 @@ class WorkersController extends Controller
         return view('backend.workers.edit', $result);
     }
 
-    public function update(WorkersRequest $request, $id)
+    public function update(WorkersUpdateRequest $request, $id)
     {
         $worker = Workers::where('id', $id)->first();
         $validated_data = $request->validated();
-        if ($request->hasFile('image')) {
-            $path = $worker->image;
-            if (File::exists($path)) {
-                File::delete($path);
-            }
+        // if ($request->hasFile('image')) {
+        //     $path = $worker->image;
+        //     if (File::exists($path)) {
+        //         File::delete($path);
+        //     }
 
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            $file->move('uploads/workers/image/', $filename);
-            $validated_data['image'] = "uploads/workers/image/$filename";
-        }
+        //     $file = $request->file('image');
+        //     $ext = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $ext;
+        //     $file->move('uploads/workers/image/', $filename);
+        //     $validated_data['image'] = "uploads/workers/image/$filename";
+        // }
 
         if ($request->hasFile('cv')) {
             $path = $worker->cv;
@@ -119,6 +125,21 @@ class WorkersController extends Controller
             'image'       => $validated_data['image'] ?? $worker->image,
             'cv'       => $validated_data['cv'] ?? $worker->cv,
         ]);
+
+        $i = 1;
+        if ($request->hasFile('image')) {
+            $path = 'uploads/workers/image/';
+            foreach($request->file('image') as $imgFile) {
+                $ext = $imgFile->getClientOriginalExtension();
+                $fileName = time() . $i++ . '.' . $ext;
+                $imgFile->move($path, $fileName);
+
+                $worker->images()->create([
+                    'worker_id' => $worker->id,
+                    'image'      => $path . $fileName,
+                ]);
+            }
+        }
         alert()->success('تم بنجاح','تم تعديل بيانات العاملة بنجاح');
         return redirect()->route('workers.index');
     }
@@ -127,18 +148,29 @@ class WorkersController extends Controller
     public function destroy($id)
     {
         $worker = Workers::where('id', $id)->first();
-        $image_path = $worker->image;
-        if (File::exists($image_path)) {
-            File::delete($image_path);
+        if ($worker) {
+            if ($worker->images()) {
+                $workerImages = WorkerImage::where('worker_id', $worker->id)->get();
+                foreach ($workerImages as $imageItem) {
+                    if (File::exists($imageItem->image)) {
+                        File::delete($imageItem->image);
+                    }
+                }
+                WorkerImage::where('worker_id', $worker->id)->delete();
+            }
+            $cv_path = $worker->cv;
+            if (File::exists($cv_path)) {
+                File::delete($cv_path);
+            }
+            $worker->delete();
+            alert()->success('تم بنجاح','تم حذف بيانات العاملة بنجاح');
+            return redirect()->route('workers.index');
+        } else {
+            return redirect()->route('workers.index');
         }
-        $cv_path = $worker->image;
-        if (File::exists($cv_path)) {
-            File::delete($cv_path);
-        }
-        $worker->delete();
-        alert()->success('تم بنجاح','تم حذف بيانات العاملة بنجاح');
-        return redirect()->route('workers.index');
     }
+
+
 
     public function changeStatus(Request $request)
     {

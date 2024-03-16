@@ -31,8 +31,8 @@ class WorkersRequest extends FormRequest
             'description'       => ['required', 'string'],
             'long_description'  => ['nullable', 'string'],
             'rating'            => ['required', 'numeric'],
-            'cv'                => ['nullable', 'file'],
-            'image'             => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
+            'cv'                => ['required', 'file'],
+            // 'image'             => ['required', 'image', 'mimes:png,jpg,jpeg'],
         ];
     }
 }

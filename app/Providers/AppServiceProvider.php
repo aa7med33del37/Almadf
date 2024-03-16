@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Backend\Setting;
+use App\Models\Backend\Notification;
+use App\Models\Backend\Popup;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,8 +24,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $settings = Setting::first();
+        $notification = Notification::first();
+        $popup = Popup::first();
         View::share([
-            'settings'   => $settings,
+            'settings'     => $settings,
+            'notification' => $notification,
+            'popup' => $popup,
         ]);
     }
 }

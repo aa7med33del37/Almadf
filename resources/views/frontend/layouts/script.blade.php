@@ -18,15 +18,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    @if ($popup)
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             setTimeout(()=>{
                 Swal.fire({
-                    title: 'عرض اليوم',
-                    text: 'تواصل معنا الان للحصول على خصم 50% على جميع الخدمات',
+                    title: "{{ $popup->popup_title ?? '' }}",
+                    text: "{{ $popup->popup_text ?? '' }}",
                     icon: 'success',
                     confirmButtonText: 'تواصل معنا',
                 })
             }, 2500);
         });
     </script>
+    @endif
+
