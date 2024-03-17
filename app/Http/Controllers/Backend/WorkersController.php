@@ -84,18 +84,6 @@ class WorkersController extends Controller
     {
         $worker = Workers::where('id', $id)->first();
         $validated_data = $request->validated();
-        // if ($request->hasFile('image')) {
-        //     $path = $worker->image;
-        //     if (File::exists($path)) {
-        //         File::delete($path);
-        //     }
-
-        //     $file = $request->file('image');
-        //     $ext = $file->getClientOriginalExtension();
-        //     $filename = time() . '.' . $ext;
-        //     $file->move('uploads/workers/image/', $filename);
-        //     $validated_data['image'] = "uploads/workers/image/$filename";
-        // }
 
         if ($request->hasFile('cv')) {
             $path = $worker->cv;

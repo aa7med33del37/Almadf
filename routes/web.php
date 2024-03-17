@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         // User
         Route::resource('users', UserController::class);
+        Route::post('users/update-password/{id}', [UserController::class, 'updatePassword'])->name('users.updatePassword');
+        Route::get('change-user-status', [UserController::class, 'changeStatus']);
         // Workers Route
         Route::resource('workers', WorkersController::class);
         Route::get('changeStatus', [WorkersController::class, 'changeStatus']);

@@ -16,7 +16,7 @@
                     <div class="card-header pt-7">
                         <!--begin::Title-->
                         <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label fw-bold text-gray-900"> جميع المستخدمين </span>
+                            <span class="card-label fw-bold text-gray-900"> جميع العاملات </span>
                         </h3>
                         <!--end::Title-->
                         <!--begin::Actions-->
@@ -37,7 +37,7 @@
                                 </div>
                                 <!--end::Status-->
                                 <!--begin::Search-->
-                                <a href="{{ route('users.create') }}" class="btn btn-light btn-sm"> اضافة مستخدم جديد </a>
+                                <a href="{{ route('users.create') }}" class="btn btn-light btn-sm"> اضافة مستخدم جديدة </a>
                                 <!--end::Search-->
                             </div>
                         </div>
@@ -52,11 +52,13 @@
                             <thead>
                                 <!--begin::Table row-->
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-50px"> ID </th>
+                                    <th class="min-w-50px" style="text-align: start"> رقم المستخدام </th>
                                     <th class="text-end pe-3 min-w-100px"> اسم المستخدم </th>
                                     <th class="text-end pe-3 min-w-100px"> الايميل </th>
                                     <th class="text-end pe-3 min-w-100px">الحالة</th>
+                                    @if (Auth::user()->id == 1)
                                     <th class="text-end pe-0 min-w-75px">تحرير</th>
+                                    @endif
                                 </tr>
                                 <!--end::Table row-->
                             </thead>
@@ -85,7 +87,7 @@
                                             <!--end::Info-->
                                         </div>
                                     </td>
-
+                                    @if (Auth::user()->id == 1)
                                     <td class="text-end">
                                         <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">تحرير
                                         <i class="ki-outline ki-down fs-5 ms-1"></i></a>
@@ -93,12 +95,12 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('team.edit', $item->id) }}" class="menu-link px-3"> تعديل </a>
+                                                <a href="{{ route('users.edit', $item->id) }}" class="menu-link px-3"> تعديل </a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <form action="{{ route('team.destroy', $item->id) }}" method="POST">
+                                                <form action="{{ route('users.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="menu-link px-3">حذف</button>
@@ -108,8 +110,11 @@
                                         </div>
                                         <!--end::Menu-->
                                     </td>
+                                    @endif
+
                                 </tr>
                                 @empty
+                                    <h5> لا يوجد اي مستخدم </h5>
                                 @endforelse
                             </tbody>
                             <!--end::Table body-->
@@ -127,18 +132,18 @@
     <!--end::Content wrapper-->
 </div>
 @endsection
-@section('scripts')
-    <script>
+ @section('scripts')
+     <script>
         $(function() {
             $('.toggle-class').change(function() {
                 var status = $(this).prop('checked') == true ? 1 : 0;
-                var team_id = $(this).data('id');
+                var user_id = $(this).data('id');
 
                 $.ajax({
                     type: "GET",
                     dataType: "json",
-                    url: '/admin/change-status-team',
-                    data: {'status': status, 'team_id': team_id},
+                    url: '/admin/change-user-status',
+                    data: {'status': status, 'user_id': user_id},
                     success: function(data){
                     console.log(data.success)
                     }
@@ -146,4 +151,4 @@
             })
         })
     </script>
-@endsection
+ @endsection

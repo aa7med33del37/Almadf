@@ -26,7 +26,7 @@
                     <!--end::Page title-->
                     <!--begin::Actions-->
                     <div class="d-flex align-items-center gap-2 gap-lg-3">
-                        <a href="{{ route('user.index') }}" class="btn btn-flex btn-outline btn-color-gray-700 btn-active-color-primary bg-body h-40px fs-7 fw-bold"> جميع العاملات </a>
+                        <a href="{{ route('users.index') }}" class="btn btn-flex btn-outline btn-color-gray-700 btn-active-color-primary bg-body h-40px fs-7 fw-bold"> جميع المستخدمين </a>
                     </div>
                     <!--end::Actions-->
                 </div>
@@ -40,7 +40,7 @@
             <!--begin::Content container-->
             <div id="kt_app_content_container" class="app-container container-fluid">
                 <!--begin::Layout-->
-                <form id="kt_invoice_form" action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+                <form id="kt_invoice_form" action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="d-flex flex-column flex-lg-row">
                         <!--begin::Content-->
@@ -55,7 +55,7 @@
                                         <!--begin::Input group-->
                                         <div class="d-flex flex-center flex-equal fw-row text-nowrap order-1 order-xxl-2 me-4" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Enter invoice number">
                                             <span class="fs-2x fw-bold text-gray-800">مستخدم رقم #</span>
-                                            <input type="text" class="form-control form-control-flush fw-bold text-muted fs-3 w-125px" value="{{ $team->count() + 1 }}" placehoder="..." />
+                                            <input type="text" class="form-control form-control-flush fw-bold text-muted fs-3 w-125px" value="{{ $users->count() + 1 }}" placehoder="..." />
                                         </div>
                                         <!--end::Input group-->
                                     </div>
@@ -86,16 +86,17 @@
                                                 @enderror
                                             </div>
 
-                                            <div class="mb-8">
-                                                <!--begin::Option-->
-                                                <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack mb-5">
-                                                <span class="form-check-label ms-0 fw-bold fs-6 text-gray-700"> عرض في الموقع </span>
-                                                <input class="form-check-input" type="checkbox" checked="checked" value="1" name="status"/>
-                                                </label>
-                                                <!--end::Option-->
+                                            <div class="col-12">
+                                                <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> كلمة السر </label>
+                                                <div>
+                                                    <input type="password" class="form-control form-control-solid" placeholder="" name="password"/>
+                                                </div>
+                                                @error('password')
+                                                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
-                                            <div class="mb-0">
+                                            <div class="mt-10">
                                                 <div class="row mb-5">
                                                     <button type="submit" href="#" class="btn btn-primary w-100" id="kt_invoice_submit_button">
                                                     <i class="ki-outline ki-triangle fs-3"></i> اضافة المستخدم </button>
