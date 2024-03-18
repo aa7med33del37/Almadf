@@ -79,7 +79,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> العنوان الرئيسي </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="title" value="{{ $data->title ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="title" value="{{ $data->title ?? '' }}"/>
                                                 </div>
                                                 @error('title')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -107,7 +107,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> اسم العميل الاول </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="client1" value="{{ $data->client1 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="client1" value="{{ $data->client1 ?? '' }}"/>
                                                 </div>
                                                 @error('client1')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -117,7 +117,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> وظيفة العميل الاول </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="job1" value="{{ $data->job1 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="job1" value="{{ $data->job1 ?? '' }}"/>
                                                 </div>
                                                 @error('job1')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -127,7 +127,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> رسالة العميل الاول </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="message1" value="{{ $data->message1 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="message1" value="{{ $data->message1 ?? '' }}"/>
                                                 </div>
                                                 @error('message1')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -185,7 +185,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> اسم العميل الثاني </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="client2" value="{{ $data->client1 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="client2" value="{{ $data->client1 ?? '' }}"/>
                                                 </div>
                                                 @error('client2')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -195,7 +195,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> وظيفة العميل الثاني </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="job2" value="{{ $data->job1 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="job2" value="{{ $data->job1 ?? '' }}"/>
                                                 </div>
                                                 @error('job2')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -205,7 +205,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> رسالة العميل الثاني </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="message2" value="{{ $data->message1 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="message2" value="{{ $data->message1 ?? '' }}"/>
                                                 </div>
                                                 @error('message2')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -263,7 +263,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> اسم العميل الثالث </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="client3" value="{{ $data->client3 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="client3" value="{{ $data->client3 ?? '' }}"/>
                                                 </div>
                                                 @error('client3')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -273,7 +273,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> وظيفة العميل الثالث </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="job3" value="{{ $data->job3 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="job3" value="{{ $data->job3 ?? '' }}"/>
                                                 </div>
                                                 @error('job3')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -283,7 +283,7 @@
                                             <div class="col-12 col-md-6">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> رسالة العميل الثالث </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="message3" value="{{ $data->message3 ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="message3" value="{{ $data->message3 ?? '' }}"/>
                                                 </div>
                                                 @error('message3')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>

@@ -44,8 +44,6 @@
                 <form id="kt_invoice_form" action="{{ route('partners.store', $data->id ?? '') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="d-flex flex-column flex-lg-row">
-
-                        <!--end::Content-->
                         <!--begin::Sidebar-->
                         <div class="flex-lg-auto">
                             <!--begin::Card-->
@@ -76,7 +74,7 @@
                                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-bs-original-title="Change avatar" data-kt-initialized="1">
                                                     <i class="ki-outline ki-pencil fs-7"></i>
                                                     <!--begin::Inputs-->
-                                                    <input type="file" name="images[]" accept=".png, .jpg, .jpeg" multiple>
+                                                    <input type="file" name="images[]" accept=".png, .jpg, .jpeg" multiple required>
                                                     <input type="hidden" name="avatar_remove">
                                                     <!--end::Inputs-->
                                                 </label>
@@ -110,7 +108,7 @@
                                 <div class="mb-0">
                                     <div class="row mb-5">
                                         <button type="submit" href="#" class="btn btn-primary w-100" id="kt_invoice_submit_button">
-                                        <i class="ki-outline ki-triangle fs-3"></i> تحديث بيانات الموقع </button>
+                                        <i class="ki-outline ki-triangle fs-3"></i> اضافة شريك جديد </button>
                                     </div>
                                 </div>
                                 <!--end::Actions-->
@@ -121,9 +119,80 @@
                         <!--end::Sidebar-->
                     </div>
                 </form>
+
+                <div class="d-flex flex-column flex-lg-row">
+                    <!--begin::Content-->
+                    <div class="flex-lg-row-fluid mb-10 mb-lg-0 me-lg-7 me-xl-10">
+                        <!--begin::Card-->
+                        <div class="card">
+                            <!--begin::Card body-->
+                            <div class="card-body p-12">
+                                <!--begin::Form-->
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-column align-items-start flex-xxl-row">
+                                    <!--begin::Input group-->
+                                    <div class="d-flex flex-center flex-equal fw-row text-nowrap order-1 order-xxl-2 me-4" data-bs-toggle="tooltip" data-bs-trigger="hover">
+                                        <span class="fs-2x fw-bold text-gray-800"> الشركاء </span>
+                                    </div>
+                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Top-->
+                                <!--begin::Separator-->
+                                <div class="separator separator-dashed my-10"></div>
+                                <!--end::Separator-->
+                                <!--begin::Wrapper-->
+                                <div class="mb-0">
+                                    <!--begin::Row-->
+                                    <div class="row gx-10 mb-5">
+                                        <div class="col-12">
+                                            <!--begin::List Widget 7-->
+                                            <div class="card card-xl-stretch mb-xl-8">
+                                                </div>
+                                                <!--end::Header-->
+                                                <!--begin::Body-->
+                                                <div class="card-body pt-3">
+                                                    <!--begin::Item-->
+                                                    <div class="align-items-sm-center mb-7">
+                                                        <!--begin::Symbol-->
+                                                        @forelse ($partners as $item)
+                                                            <div class="symbol symbol-60px symbol-2by3 me-4">
+                                                                <div class="symbol-label mb-5 mt-5" style="background-image: url({{ asset($item->image ?? '') }})"></div>
+                                                                <form action="{{ route('partners.delete', $item->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button type="submit" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary">حذف الصورة</button>
+                                                                </form>
+                                                            </div>
+                                                        @empty
+
+                                                        @endforelse
+                                                        <!--end::Title-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                    <!--begin::Item-->
+                                                </div>
+                                                <!--end::Body-->
+                                            </div>
+                                            <!--end::List Widget 7-->
+                                        </div>
+                                    </div>
+                                    <!--end::Wrapper-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                        </div>
+                        <!--end::Content-->
+                        <!--begin::Sidebar-->
+                        <div class="flex-lg-auto min-w-lg-300px">
+                        </div>
+                        <!--end::Sidebar-->
+                    </div>
+                </div>
                 <!--end::Form-->
                 <!--end::Layout-->
             </div>
+
             <!--end::Content container-->
         </div>
         <!--end::Content-->

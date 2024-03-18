@@ -72,7 +72,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> اسم الموظف </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="{{ $item->name }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="name" value="{{ $item->name }}"/>
                                                 </div>
                                                 @error('name')
                                                 <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -81,7 +81,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> الوظيفة </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="job" value="{{ $item->job }}" style="text-align: end"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="job" value="{{ $item->job }}" style="text-align: end"/>
                                                 </div>
                                                 @error('job')
                                                 <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>

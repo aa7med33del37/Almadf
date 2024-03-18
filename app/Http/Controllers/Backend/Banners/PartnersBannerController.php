@@ -40,7 +40,7 @@ class PartnersBannerController extends Controller
             }
         }
         alert()->success('تم بنجاح','تم تحديث لوجو الشركاء بنجاح');
-        return redirect()->route('banners.index');
+        return redirect()->back();
     }
 
     public function delete($id)
@@ -52,6 +52,6 @@ class PartnersBannerController extends Controller
         }
         $partner->delete();
         alert()->success('تم بنجاح','تم حذف لوجو الشريك بنجاح');
-        return redirect()->route('partners.index');
+        return redirect()->back();
     }
 }

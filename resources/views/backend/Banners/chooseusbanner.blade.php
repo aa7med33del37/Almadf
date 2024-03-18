@@ -70,7 +70,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> العنوان الرئيسي </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="title" value="{{ $data->title ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="title" value="{{ $data->title ?? '' }}"/>
                                                 </div>
                                                 @error('title')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -90,7 +90,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> رسالتنا </label>
                                                 <div>
-                                                    <textarea name="message" class="form-control form-control-solid" rows="3" placeholder=""> {{ $data->message ?? '' }} </textarea>
+                                                    <textarea name="message" class="form-control form-control-solid" rows="3" placeholder="" required> {{ $data->message ?? '' }} </textarea>
                                                 </div>
                                                 @error('message')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -100,7 +100,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> هدفنا </label>
                                                 <div>
-                                                    <textarea name="goals" class="form-control form-control-solid" rows="3" placeholder=""> {{ $data->goals ?? '' }} </textarea>
+                                                    <textarea name="goals" class="form-control form-control-solid" rows="3" placeholder="" required> {{ $data->goals ?? '' }} </textarea>
                                                 </div>
                                                 @error('goals')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -110,7 +110,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> رؤيتنا </label>
                                                 <div>
-                                                    <textarea name="vision" class="form-control form-control-solid" rows="3" placeholder=""> {{ $data->vision ?? '' }} </textarea>
+                                                    <textarea name="vision" class="form-control form-control-solid" rows="3" placeholder="" required> {{ $data->vision ?? '' }} </textarea>
                                                 </div>
                                                 @error('vision')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>

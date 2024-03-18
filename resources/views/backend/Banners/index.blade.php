@@ -43,7 +43,7 @@
                             <!--begin::Header-->
                             <div class="card-header align-items-center border-0 mt-4">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <a href="{{ route('banners.mainbanner.index') }}" class="fw-bold text-gray-900"> تعديل البانر الرئيسي </a>
+                                    <a href="{{ route('banners.mainbanner.index') }}" class="fw-bold text-gray-900 btn btn-secondary"> تعديل البانر الرئيسي </a>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -90,7 +90,7 @@
                             <!--begin::Header-->
                             <div class="card-header align-items-center border-0 mt-4">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <a href="{{ route('partners.index') }}" class="fw-bold text-gray-900"> تعديل لوجو الشركاء </a>
+                                    <a href="{{ route('partners.index') }}" class="fw-bold text-gray-900 btn btn-secondary"> تعديل لوجو الشركاء </a>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -129,7 +129,7 @@
                             <!--begin::Header-->
                             <div class="card-header align-items-center border-0 mt-4">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <a href="{{ route('banners.aboutbanner.index') }}" class="fw-bold text-gray-900"> تعديل بانر من نحن </a>
+                                    <a href="{{ route('banners.aboutbanner.index') }}" class="fw-bold text-gray-900 btn btn-secondary"> تعديل بانر من نحن </a>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -172,7 +172,7 @@
                             <!--begin::Header-->
                             <div class="card-header align-items-center border-0 mt-4">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <a href="{{ route('banners.chooseusbanner.index') }}" class="fw-bold text-gray-900"> تعديل بانر "لماذا تختارنا"  </a>
+                                    <a href="{{ route('banners.chooseusbanner.index') }}" class="fw-bold text-gray-900 btn btn-secondary"> تعديل بانر "لماذا تختارنا"  </a>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -217,7 +217,7 @@
                             <!--begin::Header-->
                             <div class="card-header align-items-center border-0 mt-4">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <a href="{{ route('banners.orderbanner.index') }}" class="fw-bold text-gray-900"> تعديل بانر طلب عرض </a>
+                                    <a href="{{ route('banners.orderbanner.index') }}" class="fw-bold text-gray-900 btn btn-secondary"> تعديل بانر طلب عرض </a>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -256,7 +256,7 @@
                             <!--begin::Header-->
                             <div class="card-header align-items-center border-0 mt-4">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <a href="{{ route('funfact.index') }}" class="fw-bold text-gray-900"> تعديل Funfact </a>
+                                    <a href="{{ route('funfact.index') }}" class="fw-bold text-gray-900 btn btn-secondary"> تعديل Funfact </a>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -298,7 +298,7 @@
                             <!--begin::Header-->
                             <div class="card-header align-items-center border-0 mt-4">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <a href="{{ route('banners.reviewsbanner.index') }}" class="fw-bold text-gray-900"> تعديل بانر تقييمات العملاء  </a>
+                                    <a href="{{ route('banners.reviewsbanner.index') }}" class="fw-bold text-gray-900 btn btn-secondary"> تعديل بانر تقييمات العملاء  </a>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -339,24 +339,4 @@
     </div>
     <!--end::Content wrapper-->
 </div>
-@endsection
-@section('scripts')
-{{-- <script>
-    $(function() {
-        $('.toggle-class').change(function() {
-            var status = $(this).prop('checked') == true ? 1 : 0;
-            var worker_id = $(this).data('id');
-
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: '/admin/changeStatus',
-                data: {'status': status, 'worker_id': worker_id},
-                success: function(data){
-                console.log(data.success)
-                }
-            });
-        })
-    })
-</script> --}}
 @endsection

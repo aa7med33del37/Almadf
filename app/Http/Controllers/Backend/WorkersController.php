@@ -9,7 +9,7 @@ use App\Http\Requests\Backend\WorkersRequest;
 use App\Http\Requests\Backend\WorkersUpdateRequest;
 use Illuminate\Support\Facades\File;
 Use Alert;
-use App\Models\Backend\WorkersImage;
+use App\Models\Backend\WorkerImage;
 
 class WorkersController extends Controller
 {
@@ -110,7 +110,6 @@ class WorkersController extends Controller
             'long_description' => $validated_data['long_description'],
             'rating' => $validated_data['rating'],
             'status' => $request->status ?? '0',
-            'image'       => $validated_data['image'] ?? $worker->image,
             'cv'       => $validated_data['cv'] ?? $worker->cv,
         ]);
 
@@ -129,9 +128,20 @@ class WorkersController extends Controller
             }
         }
         alert()->success('تم بنجاح','تم تعديل بيانات العاملة بنجاح');
-        return redirect()->route('workers.index');
+        return redirect()->back();
     }
 
+    public function deleteImage($id)
+    {
+        $item = WorkerImage::where('id', $id)->first();
+        $image_path = $item->image;
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $item->delete();
+        alert()->success('تم بنجاح','تم حذف الصورة بنجاح');
+        return redirect()->back();
+    }
 
     public function destroy($id)
     {

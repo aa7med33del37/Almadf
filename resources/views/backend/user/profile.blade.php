@@ -72,7 +72,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> اسم المستخدم </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="{{ $item->name }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="name" value="{{ $item->name }}"/>
                                                 </div>
                                                 @error('name')
                                                 <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -82,7 +82,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> الايميل </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="email" value="{{ $item->email }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="email" value="{{ $item->email }}"/>
                                                 </div>
                                                 @error('email')
                                                 <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -138,7 +138,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> كلمة المرور القديمة </label>
                                                 <div>
-                                                    <input type="password" class="form-control form-control-solid" placeholder="" name="old_password"/>
+                                                    <input type="password" class="form-control form-control-solid" placeholder="" required name="old_password"/>
                                                 </div>
                                                 @error('old-password')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -149,7 +149,7 @@
                                         <div class="col-12">
                                             <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> كلمة المرور الحديثة </label>
                                             <div>
-                                                <input type="password" class="form-control form-control-solid" placeholder="" name="new_password"/>
+                                                <input type="password" class="form-control form-control-solid" placeholder="" required name="new_password"/>
                                             </div>
                                             @error('new-password')
                                                 <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>

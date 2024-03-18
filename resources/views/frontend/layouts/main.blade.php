@@ -10,6 +10,11 @@
     <link rel="shortcut icon" href="{{ asset($settings->favicon ?? 'layouts/frontend/assets/images/favicon_2.png') }}">
     <!-- Links of CSS files -->
     @include('frontend.layouts.style')
+    <style>
+        .free-quote-form .form-group .form-control {
+            text-align: right;
+        }
+    </style>
 
 </head>
 

@@ -4,3 +4,4 @@
 <link href="{{ asset('layouts/backend/assets/plugins/custom/prismjs/prismjs.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('layouts/backend/assets/plugins/global/plugins.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('layouts/backend/assets/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
+

@@ -70,7 +70,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> اسم المستخدم </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" />
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="name" />
                                                 </div>
                                                 @error('name')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -79,7 +79,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> الايميل </label>
                                                 <div>
-                                                    <input type="email" class="form-control form-control-solid" placeholder="" name="email"/>
+                                                    <input type="email" class="form-control form-control-solid" placeholder="" required name="email"/>
                                                 </div>
                                                 @error('email')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -89,7 +89,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> كلمة السر </label>
                                                 <div>
-                                                    <input type="password" class="form-control form-control-solid" placeholder="" name="password"/>
+                                                    <input type="password" class="form-control form-control-solid" placeholder="" required name="password"/>
                                                 </div>
                                                 @error('password')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>

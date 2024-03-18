@@ -1,5 +1,6 @@
 <?php
 
+// Backend
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\UserController;
@@ -16,11 +17,12 @@ use App\Http\Controllers\Backend\Banners\FunFactController;
 use App\Http\Controllers\Backend\ClientOrderController;
 use App\Http\Controllers\Backend\MarketingController;
 use App\Http\Controllers\Backend\TeamController;
-
+use App\Http\Controllers\Backend\PagesController;
+// Frontend
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\ServicesController;
 use App\Http\Controllers\Frontend\OrderController;
-
+// Route
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,7 @@ Route::get('/staff/{id}', [IndexController::class, 'staff_details'])->name('staf
 Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
 Route::get('/faq', [IndexController::class, 'faq'])->name('faq');
 Route::post('/order', [OrderController::class, 'store'])->name('home.order.store');
+Route::get('pages/{slug}', [IndexController::class, 'page_details'])->name('pages.details');
 
 
 // Route::get('/dashboard', function () {
@@ -62,6 +65,7 @@ Route::middleware('auth')->group(function () {
         // Workers Route
         Route::resource('workers', WorkersController::class);
         Route::get('changeStatus', [WorkersController::class, 'changeStatus']);
+        Route::delete('workers/{id}/delete-image', [WorkersController::class, 'deleteImage'])->name('workers.deleteImage');
         // Settings Route
         Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
         Route::post('settings/store', [SettingController::class, 'store'])->name('settings.store');
@@ -111,6 +115,8 @@ Route::middleware('auth')->group(function () {
         // Team Route
         Route::resource('team', TeamController::class);
         Route::get('change-status-team', [TeamController::class, 'changeStatus']);
+        // Pages
+        Route::resource('pages', PagesController::class);
     });
 });
 

@@ -71,7 +71,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> عدد السنوات </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="years" value="{{ $data->years ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="years" value="{{ $data->years ?? '' }}"/>
                                                 </div>
                                                 @error('years')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -81,7 +81,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> وصف اسفل عدد السنوات </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="years_desc" value="{{ $data->years_desc ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="years_desc" value="{{ $data->years_desc ?? '' }}"/>
                                                 </div>
                                                 @error('years_desc')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -94,7 +94,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> عدد العملاء </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="clients" value="{{ $data->clients ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="clients" value="{{ $data->clients ?? '' }}"/>
                                                 </div>
                                                 @error('clients')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -104,7 +104,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> وصف اسفل عدد العملاء </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="clients_desc" value="{{ $data->clients_desc ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="clients_desc" value="{{ $data->clients_desc ?? '' }}"/>
                                                 </div>
                                                 @error('clients_desc')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -116,7 +116,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> عدد المشاريع </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="projects" value="{{ $data->projects ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="projects" value="{{ $data->projects ?? '' }}"/>
                                                 </div>
                                                 @error('projects')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -126,7 +126,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> وصف اسفل عدد المشاريع </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="projects_desc" value="{{ $data->projects_desc ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="projects_desc" value="{{ $data->projects_desc ?? '' }}"/>
                                                 </div>
                                                 @error('projects_desc')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>

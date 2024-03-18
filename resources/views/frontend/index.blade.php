@@ -333,13 +333,13 @@
                     </h3>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="أدخل أسمك" name="name">
+                        <input type="text" class="form-control" required placeholder="أدخل أسمك" name="name">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="أدخل رقم" name="phone">
+                        <input type="tel" class="form-control" required placeholder="أدخل رقم" name="phone">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="عنوان البريد الإلكتروني" name="email">
+                        <input type="email" class="form-control" required placeholder="عنوان البريد الإلكتروني" name="email">
                     </div>
                     <div class="form-group">
                         <select class="form-select form-control" name="service">
@@ -371,7 +371,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" class="form-control" placeholder="رسالة"></textarea>
+                        <textarea name="message" class="form-control" required placeholder="رسالة"></textarea>
                     </div>
                     <button type="submit" class="default-btn"><i class="ri-arrow-right-line"></i>
                         <font style="vertical-align: inherit;">
@@ -499,7 +499,8 @@
 <!-- End Funfact Area -->
 
 <!-- Start Shop Area -->
-<div class="shop-area ptb-100">
+<div class="shop-area ptb-100">طلب عرض أسعار مجاني
+
     <div class="container">
         <div class="section-title">
             <span>

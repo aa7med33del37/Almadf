@@ -85,27 +85,27 @@
                                         <!--begin::Row-->
                                         <div class="row gx-10 mb-5">
                                             <div class="col-lg-12">
-                                                <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> اسم العامله </label>
+                                                <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> اسم العامله* </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" />
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" required/>
                                                 </div>
                                                 @error('name')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="col-lg-6">
-                                                <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> العمر </label>
+                                                <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> العمر* </label>
                                                 <div>
-                                                    <input type="number" class="form-control form-control-solid" placeholder="" min="18" max="50" value="25" name="age" style="text-align: end"/>
+                                                    <input type="number" class="form-control form-control-solid" placeholder="" min="18" max="50" value="25" name="age" style="text-align: end" required/>
                                                 </div>
                                                 @error('age')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="col-lg-6">
-                                                <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> الخبرة </label>
+                                                <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> الخبرة* </label>
                                                 <div>
-                                                    <input type="number" class="form-control form-control-solid" placeholder="" min="0" max="50" value="5" name="experience" style="text-align: end"/>
+                                                    <input type="number" class="form-control form-control-solid" placeholder="" min="0" max="50" value="5" name="experience" style="text-align: end" required/>
                                                 </div>
                                                 @error('experience')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -113,8 +113,8 @@
                                             </div>
 
                                             <div class="col-lg-6">
-                                                <label class="form-label fw-bold fs-6 text-gray-700"> نوع الخدمة </label>
-                                                <select name="job" aria-label="Select a Timezone" data-control="select2" class="form-select form-select-solid">
+                                                <label class="form-label fw-bold fs-6 text-gray-700"> نوع الخدمة* </label>
+                                                <select name="job" aria-label="Select a Timezone" data-control="select2" class="form-select form-select-solid" required>
                                                     <option value="">اختيار</option>
                                                     <option value="recruiting_workers">
                                                         استقدام العمالة منزلية
@@ -136,11 +136,11 @@
                                             <!--begin::Row-->
                                             <div class="row gx-10 mb-5">
                                                 <div class="col-lg-6">
-                                                    <label class="form-label fw-bold fs-6 text-gray-700"> الدولة </label>
+                                                    <label class="form-label fw-bold fs-6 text-gray-700"> الدولة* </label>
                                                     <select name="country" aria-label="Select a Timezone" data-control="select2" data-placeholder="دولة العاملة" class="form-select form-select-solid">
                                                         <option value="">اختيار</option>
                                                         @foreach ($countries as $country)
-                                                        <option value="{{ $country->country_arName }}">
+                                                        <option value="{{ $country->country_arName }}" {{ $country->country_code == 'SA' ? 'selected' : '' }}>
                                                             {{ $country->country_arName }}
                                                         </option>
                                                         @endforeach
@@ -150,8 +150,8 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <label class="form-label fw-bold fs-6 text-gray-700"> الديانة </label>
-                                                    <select name="religion" aria-label="Select a Timezone" data-control="select2" data-placeholder="ديانة العاملة" class="form-select form-select-solid">
+                                                    <label class="form-label fw-bold fs-6 text-gray-700"> الديانة* </label>
+                                                    <select name="religion" aria-label="Select a Timezone" data-control="select2" data-placeholder="ديانة العاملة" class="form-select form-select-solid" required>
                                                         <option value=""></option>
                                                         <option data-kt-flag="flags/united-states.svg" value="Muslim" selected>
                                                             مسلمة
@@ -169,15 +169,15 @@
                                         {{-- Religion End --}}
                                         <!--begin::Notes-->
                                         <div class="mb-0">
-                                            <label class="form-label fs-6 fw-bold text-gray-700"> وصف قصير </label>
-                                            <textarea name="description" class="form-control form-control-solid" rows="3" placeholder="وصف قصير للعامله"></textarea>
+                                            <label class="form-label fs-6 fw-bold text-gray-700"> وصف قصير* </label>
+                                            <textarea name="description" class="form-control form-control-solid" rows="3" placeholder="وصف قصير للعامله" required></textarea>
                                             @error('description')
                                                 <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="mb-0">
                                             <label class="form-label fs-6 fw-bold text-gray-700"> وصف طويل </label>
-                                            <textarea name="long_description" class="form-control form-control-solid" rows="3" placeholder="وصف طويل للعامله"></textarea>
+                                            <textarea name="long_description" class="form-control form-control-solid" rows="3" placeholder="وصف طويل للعامله" placeholder="اختياري"></textarea>
                                             @error('long_description')
                                                 <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -202,7 +202,7 @@
                                         <div class="card-header">
                                             <!--begin::Card title-->
                                             <div class="card-title">
-                                                <h2> صورة العاملة </h2>
+                                                <h2> صورة العاملة* </h2>
                                             </div>
                                             <!--end::Card title-->
                                         </div>
@@ -221,7 +221,7 @@
                                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-bs-original-title="Change avatar" data-kt-initialized="1">
                                                     <i class="ki-outline ki-pencil fs-7"></i>
                                                     <!--begin::Inputs-->
-                                                    <input type="file" name="image[]" accept=".png, .jpg, .jpeg" multiple>
+                                                    <input type="file" name="image[]" accept=".png, .jpg, .jpeg" multiple required>
                                                     <input type="hidden" name="avatar_remove">
                                                     <!--end::Inputs-->
                                                 </label>
@@ -246,6 +246,14 @@
                                             <!--end::Description-->
                                         </div>
                                         <!--end::Card body-->
+                                    </div>
+
+                                    <div class="mb-0 mt-10">
+                                        <label class="form-label fs-6 fw-bold text-gray-700"> السيرة الذاتية - CV *</label>
+                                        <input type="file" name="cv" id="cv" class="btn btn-flex btn-light-primary w-100" required>
+                                        @error('cv')
+                                            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <!--begin::Separator-->
                                     <div class="separator separator-dashed mb-8"></div>
@@ -286,16 +294,6 @@
                                         <!--end::Option-->
                                     </div>
                                     <!--end::Input group-->
-                                    <!--begin::Separator-->
-                                    <div class="separator separator-dashed mb-8"></div>
-                                    <!--end::Separator-->
-                                    <div class="mb-0">
-                                        <label class="form-label fs-6 fw-bold text-gray-700"> السيرة الذاتية - CV </label>
-                                        <input type="file" name="cv" id="cv" class="btn btn-flex btn-light-primary w-100">
-                                        @error('cv')
-                                            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
                                     <!--begin::Separator-->
                                     <div class="separator separator-dashed mb-8"></div>
                                     <!--end::Separator-->

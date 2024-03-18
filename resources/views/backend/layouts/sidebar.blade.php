@@ -1,9 +1,9 @@
 <div id="kt_app_sidebar" class="app-sidebar flex-column mt-lg-4 ps-2 pe-2 ps-lg-7 pe-lg-4" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
     <div class="app-sidebar-logo flex-shrink-0 d-none d-md-flex flex-center align-items-center" id="kt_app_sidebar_logo">
         <!--begin::Logo-->
-        <a href="{{ route('dashboard') }}">
-        <img alt="Logo" src="{{ asset($settings->logo ?? '') }}" class="h-25px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
-        <img alt="Logo" src="{{ asset($settings->logo ?? '') }}" class="h-25px theme-dark-show" />
+        <a href="{{ route('home') }}" target="_blank" title="زيارة الموقع">
+        <img alt="Logo" src="{{ asset($settings->logo ?? '') }}" class="h-75px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
+        <img alt="Logo" src="{{ asset($settings->logo ?? '') }}" class="h-75px theme-dark-show" />
         </a>
         <!--end::Logo-->
         <!--begin::Aside toggle-->
@@ -70,6 +70,20 @@
                     <!--end:Menu link-->
                 </div>
                 <!--end:Banners item-->
+
+                <!--begin:pages item-->
+                <div class="menu-item menu-accordion">
+                    <!--begin:Menu link-->
+                    <span class="menu-link">
+                    <span class="menu-icon">
+                    <i class="ki-outline ki-rescue fs-2"></i>
+                    </span>
+                    <a href="{{ route('pages.index') }}" class="menu-title"> الصفحات </a>
+                    <span class="menu-arrow"></span>
+                    </span>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:pages item-->
 
                 <!--begin:Marketing item-->
                 <div class="menu-item menu-accordion">

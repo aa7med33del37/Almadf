@@ -70,7 +70,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> العنوان الرئيسي </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="title" value="{{ $data->title ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="title" value="{{ $data->title ?? '' }}"/>
                                                 </div>
                                                 @error('title')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -80,7 +80,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> العنوان الفرعي </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="subTitle" value="{{ $data->subTitle ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="subTitle" value="{{ $data->subTitle ?? '' }}"/>
                                                 </div>
                                                 @error('subTitle')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -90,7 +90,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> وصف قصير </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="description" value="{{ $data->description ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="description" value="{{ $data->description ?? '' }}"/>
                                                 </div>
                                                 @error('description')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>
@@ -113,7 +113,7 @@
                                             <div class="col-12">
                                                 <label class="form-label fs-6 fw-bold text-gray-700 mb-3"> لينك الزر </label>
                                                 <div>
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="button_link" value="{{ $data->button_link ?? '' }}"/>
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" required name="button_link" value="{{ $data->button_link ?? '' }}"/>
                                                 </div>
                                                 @error('button_link')
                                                     <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">{{ $message }}</div>

@@ -38,10 +38,10 @@
                             <a href="{{ route('services') }}" class="nav-link">
 
                                 خدماتنا
-                                <i class="ri-arrow-down-s-line"></i>
+                                {{-- <i class="ri-arrow-down-s-line"></i> --}}
                             </a>
 
-                            <ul class="dropdown-menu">
+                            {{-- <ul class="dropdown-menu">
                                 <li class="nav-item">
                                     <a href="services-details.html" class="nav-link">
                                         طلب استقدام
@@ -59,7 +59,7 @@
                                 </li>
 
 
-                            </ul>
+                            </ul> --}}
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('faq') }}" class="nav-link">
